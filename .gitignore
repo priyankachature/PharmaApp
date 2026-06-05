@@ -1,0 +1,58 @@
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Node / Frontend ---
+node_modules/
+/frontend/node_modules/
+/frontend/dist/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.env
+.env.*
+
+# --- Java / Maven ---
+target/
+/backend/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven wrapper directory (keep wrapper jar if tracked)
+.mvn/
+
+# --- IDEs ---
+.idea/
+*.iml
+*.iws
+.vscode/
+
+# --- Eclipse ---
+.classpath
+.project
+.settings/
+
+# --- Temporary / Build artifacts ---
+tmp/
+temp/
+dist/
+build/
+
+# --- Misc ---
+*.swp
+*~
+
+# Ignore local environment files sometimes used for secret keys
+credentials.properties
+secrets.properties
+
+# Keep SQL schema and seed files under /db in repo; do not ignore db/ unless you store sensitive DB files
+# End of file
