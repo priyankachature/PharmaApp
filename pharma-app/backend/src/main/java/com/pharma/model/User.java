@@ -1,7 +1,5 @@
 package com.pharma.model;
 
-import org.springframework.context.annotation.Bean;
-
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,24 +34,4 @@ public class User {
     public enum Role {
         Admin, Viewer
     }
-
-	public String getUsername() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getPwdHash() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Bean getRole() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Object getFullName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
