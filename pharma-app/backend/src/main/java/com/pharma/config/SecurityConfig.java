@@ -30,11 +30,9 @@ import java.util.List;
 public class SecurityConfig {
 
     private final UserRepository userRepository;
-    private final JwtFilter jwtFilter;
 
-    public SecurityConfig(UserRepository userRepository, JwtFilter jwtFilter) {
+    public SecurityConfig(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.jwtFilter = jwtFilter;
     }
 
     @Bean
@@ -70,11 +68,12 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtFilter jwtFilter) throws Exception {
         http
             .csrf(csrf -> csrf.disable())
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/").permitAll()
                 .requestMatchers("/api/auth/**").permitAll()
                 // Admin-only write operations
                 .requestMatchers(HttpMethod.POST, "/api/drugs/**").hasRole("Admin")
